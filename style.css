@@ -1123,6 +1123,7 @@ ul {
     gap: 10px;
     padding: 10px 0;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.05); /* Ligne plus discrète */
+    position: relative; /* Pour le bouton de suppression */
 }
 
 .order-summary-container .checkout-cart-item:last-of-type {
@@ -1198,6 +1199,43 @@ ul {
 
 .text-sm {
     font-size: 0.875rem; /* 14px */
+}
+
+/* Styles spécifiques à la page FAQ */
+#faq-main {
+    padding-top: 120px; /* Espace pour le header sticky */
+    text-align: left;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.faq-item {
+    background-color: var(--color-dark-alt);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.faq-item h3 {
+    color: var(--color-orange-accent);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.faq-item p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--color-light-gray);
+}
+
+.faq-item a {
+    color: var(--color-orange-accent);
+    text-decoration: underline;
 }
 
 /* Media Queries pour la Responsivité */
@@ -1466,6 +1504,14 @@ ul {
         top: 5px;
         right: 5px;
         margin-left: 0;
+    }
+
+    /* Media Queries pour la page FAQ */
+    .faq-item h3 {
+        font-size: 1.3em;
+    }
+    .faq-item p {
+        font-size: 0.95em;
     }
 }
 

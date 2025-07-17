@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanWear Republic - Questions Fréquentes</title>
+    <!-- Google Fonts: Poppins pour une typographie moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes (burger, panier, réseaux sociaux) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Lien vers le fichier CSS principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- En-tête du site (Header) - Identique à toutes les pages -->
+    <header id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">UrbanWear Republic</a>
+            </div>
+            <!-- Menu de navigation principal -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li> <!-- Lien actif pour cette page -->
+                </ul>
+            </nav>
+            <!-- Icônes d'action (Panier, Menu Burger) -->
+            <div class="header-actions">
+                <button id="cart-button" class="action-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
+                <button id="burger-menu-button" class="action-icon">
+                    <i class="fas fa-bars"></i>
+                </gutton>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu burger pour mobile (sera affiché/masqué par JS) - Identique à toutes les pages -->
+    <div id="mobile-menu">
+        <button id="close-mobile-menu" class="action-icon"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="shop.html">Boutique</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Section principale de la FAQ -->
+    <main id="faq-main" class="section">
+        <div class="container">
+            <h1 class="page-title">Questions Fréquentes (FAQ)</h1>
+            <p class="section-description">Trouvez rapidement les réponses à vos questions les plus courantes.</p>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Quels sont les délais de livraison ?</h3>
+                    <p>Nos délais de livraison standard sont de 3 à 5 jours ouvrables pour la France métropolitaine. Pour les livraisons internationales, les délais peuvent varier de 7 à 15 jours ouvrables.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Comment puis-je suivre ma commande ?</h3>
+                    <p>Une fois votre commande expédiée, vous recevrez un e-mail de confirmation contenant un numéro de suivi. Vous pourrez utiliser ce numéro sur le site du transporteur pour suivre l'acheminement de votre colis.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Puis-je retourner un article si je change d'avis ?</h3>
+                    <p>Oui, vous disposez d'un délai de 14 jours à compter de la réception de votre commande pour nous retourner tout article qui ne vous conviendrait pas. L'article doit être dans son état d'origine, non porté et avec ses étiquettes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Quels sont les modes de paiement acceptés ?</h3>
+                    <p>Nous acceptons les paiements par carte bancaire (Visa, MasterCard, American Express) et via PayPal. Tous les paiements sont sécurisés.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Vos vêtements taillent-ils normalement ?</h3>
+                    <p>Nos vêtements sont conçus pour un style streetwear, souvent avec une coupe légèrement oversize. Nous vous recommandons de consulter notre guide des tailles disponible sur chaque page produit pour choisir la taille la plus adaptée.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Comment puis-je vous contacter ?</h3>
+                    <p>Vous pouvez nous contacter via le formulaire de contact sur notre page <a href="contact.html">Contact</a>, par e-mail à contact@urbanwearrepublic.com, ou via WhatsApp au +33 6 12 34 56 78.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pied de page (Footer) - Identique à toutes les pages -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>UrbanWear Republic</h3>
+                    <p>Votre destination pour le style streetwear authentique et tendance.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/urbanwearrepublic" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@urbanwearrepublic" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://facebook.com/urbanwearrepublic" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Aide & Infos</h3>
+                    <ul>
+                        <li><a href="#">CGV</a></li>
+                        <li><a href="#">Politique de Retour</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="tel:+33612345678">Appelez-nous : +33 6 12 34 56 78</a></li>
+                        <li><a href="https://wa.me/33612345678" target="_blank">WhatsApp : +33 6 12 34 56 78</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UrbanWear Republic. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript principal -->
+    <script src="script.js"></script>
+</body>
+</html>
