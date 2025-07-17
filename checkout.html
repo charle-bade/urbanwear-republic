@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UrbanWear Republic - Votre Panier</title>
+    <title>UrbanWear Republic - Finaliser la Commande</title>
     <!-- Google Fonts: Poppins pour une typographie moderne -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome pour les icônes (burger, panier, réseaux sociaux) -->
@@ -30,7 +30,7 @@
             </nav>
             <!-- Icônes d'action (Panier, Menu Burger) -->
             <div class="header-actions">
-                <button id="cart-button" class="action-icon active">
+                <button id="cart-button" class="action-icon">
                     <i class="fas fa-shopping-cart"></i>
                     <span id="cart-count" class="cart-count">0</span>
                 </button>
@@ -52,22 +52,80 @@
         </ul>
     </div>
 
-    <!-- Section principale du Panier -->
-    <main id="cart-main" class="section fade-in">
+    <!-- Section principale de la Commande -->
+    <main id="checkout-main" class="section"> <!-- 'fade-in' class removed for immediate visibility -->
         <div class="container">
-            <h1 class="page-title">Votre Panier</h1>
-            <p class="section-description">Vérifiez vos articles avant de finaliser votre commande.</p>
+            <h1 class="page-title">Finaliser Votre Commande</h1>
+            <p class="section-description">Veuillez remplir vos informations de livraison et de paiement.</p>
 
-            <div id="cart-items-container" class="cart-items-container">
-                <!-- Les articles du panier seront injectés ici par JavaScript -->
-                <p id="empty-cart-message" class="text-center">Votre panier est vide pour le moment.</p>
-            </div>
+            <div class="checkout-layout">
+                <div class="checkout-form-container">
+                    <h2>Informations de Livraison</h2>
+                    <form id="shipping-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="full-name">Nom Complet</label>
+                            <input type="text" id="full-name" name="full-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Adresse</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Ville</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postal-code">Code Postal</label>
+                            <input type="text" id="postal-code" name="postal-code" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Pays</label>
+                            <input type="text" id="country" name="country" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
 
-            <div class="cart-summary">
-                <p>Total : <span id="cart-total-price">0.00 €</span></p>
-                <!-- Le bouton redirige maintenant vers la page de paiement -->
-                <a href="checkout.html" id="checkout-button" class="btn btn-primary">Passer la commande</a>
-                <a href="shop.html" class="btn btn-secondary mt-4">Continuer mes achats</a>
+                        <h2 class="mt-8">Informations de Paiement</h2>
+                        <div class="form-group">
+                            <label for="card-number">Numéro de Carte</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                        </div>
+                        <div class="form-group-inline">
+                            <div class="form-group">
+                                <label for="expiry-date">Date d'Expiration (MM/AA)</label>
+                                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="XXX" required>
+                            </div>
+                        </div>
+                        <p class="text-center text-sm text-light-gray mt-4">Le paiement est simulé pour cet exemple.</p>
+                    </form>
+                </div>
+
+                <div class="order-summary-container">
+                    <h2>Résumé de la Commande</h2>
+                    <div id="checkout-cart-items" class="checkout-cart-items">
+                        <!-- Les articles du panier seront injectés ici par JavaScript -->
+                        <p id="checkout-empty-cart-message">Votre panier est vide.</p>
+                    </div>
+                    <div class="summary-line">
+                        <span>Sous-total :</span>
+                        <span id="summary-subtotal">0.00 €</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Livraison :</span>
+                        <span>Gratuit</span>
+                    </div>
+                    <div class="summary-line total-line">
+                        <span>Total :</span>
+                        <span id="summary-total">0.00 €</span>
+                    </div>
+                    <button id="place-order-button" class="btn btn-primary mt-8">Confirmer la Commande</button>
+                </div>
             </div>
         </div>
     </main>

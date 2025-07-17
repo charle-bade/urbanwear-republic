@@ -39,6 +39,11 @@ body {
     padding: 80px 0;
     text-align: center;
     position: relative; /* Pour les animations de fade-in */
+    /* Les sections qui ne sont pas sur la page d'accueil n'auront plus 'opacity: 0' par défaut */
+}
+
+/* Uniquement pour les sections qui doivent apparaître au scroll (comme sur la page d'accueil) */
+.section.fade-in {
     opacity: 0; /* Caché par défaut pour l'animation */
     transform: translateY(20px); /* Légèrement décalé vers le bas */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition douce */
@@ -608,6 +613,10 @@ ul {
     margin-top: 2rem; /* 32px */
 }
 
+.mt-4 {
+    margin-top: 1rem; /* 16px */
+}
+
 /* Styles spécifiques à la page Boutique */
 .page-title {
     font-size: 3.5em;
@@ -862,7 +871,8 @@ ul {
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
-.contact-form textarea {
+.contact-form textarea,
+.contact-form input[type="tel"] { /* Ajout du type tel */
     width: 100%;
     padding: 12px;
     border: 1px solid var(--color-orange-accent);
@@ -875,13 +885,15 @@ ul {
 
 .contact-form input[type="text"]::placeholder,
 .contact-form input[type="email"]::placeholder,
-.contact-form textarea::placeholder {
+.contact-form textarea::placeholder,
+.contact-form input[type="tel"]::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form input[type="tel"]:focus {
     outline: none;
     border-color: var(--color-orange-accent);
     box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.3);
@@ -919,6 +931,7 @@ ul {
     gap: 20px;
     padding: 20px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative; /* Pour le bouton de suppression */
 }
 
 .cart-item:last-child {
@@ -1056,6 +1069,90 @@ ul {
     transform: translateX(-50%) translateY(0);
 }
 
+/* Styles spécifiques à la page Checkout */
+#checkout-main {
+    padding-top: 120px; /* Espace pour le header sticky */
+    text-align: left;
+}
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Formulaire plus large, résumé plus petit */
+    gap: 40px;
+    margin-top: 40px;
+    align-items: flex-start;
+}
+
+.checkout-form-container, .order-summary-container {
+    background-color: var(--color-dark-alt);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.checkout-form-container h2, .order-summary-container h2 {
+    color: var(--color-orange-accent);
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    text-align: center;
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group-inline .form-group {
+    flex: 1; /* Chaque groupe prend la moitié de l'espace */
+}
+
+.order-summary-container .checkout-cart-items {
+    max-height: 300px; /* Limite la hauteur pour le défilement */
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px; /* Pour la barre de défilement */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.order-summary-container .checkout-cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--color-light-gray);
+}
+
+.order-summary-container .checkout-cart-item span:first-child {
+    font-weight: 600;
+    color: var(--color-white-pure);
+}
+
+.order-summary-container .summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: var(--color-white-pure);
+}
+
+.order-summary-container .total-line {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-orange-accent);
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.order-summary-container .btn-primary {
+    width: 100%;
+}
+
+.text-sm {
+    font-size: 0.875rem; /* 14px */
+}
 
 /* Media Queries pour la Responsivité */
 
@@ -1099,6 +1196,11 @@ ul {
 
     .product-listing {
         width: 100%;
+    }
+
+    /* Media Queries pour la page Checkout */
+    .checkout-layout {
+        grid-template-columns: 1fr; /* Une seule colonne sur les tablettes */
     }
 }
 
@@ -1289,6 +1391,12 @@ ul {
     .cart-summary .btn {
         width: 100%;
         margin: 10px 0;
+    }
+
+    /* Media Queries pour la page Checkout */
+    .form-group-inline {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
