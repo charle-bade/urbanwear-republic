@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+            e.preventDefault(); // Empêche l'envoi du formulaire par default
             const emailInput = this.querySelector('input[type="email"]');
             const email = emailInput.value;
 
@@ -388,7 +388,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Boutons de diminution de quantité
         document.querySelectorAll('.decrease-quantity').forEach(button => {
             button.onclick = (e) => {
-                const productId = e.target.dataset.productId;
+                // Assurez-vous que le productId est récupéré du bouton parent si le clic est sur l'icône
+                const productId = e.target.closest('button').dataset.productId;
                 const item = cart.find(i => i.id == productId);
                 if (item && item.quantity > 1) {
                     item.quantity--;
@@ -402,7 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Boutons d'augmentation de quantité
         document.querySelectorAll('.increase-quantity').forEach(button => {
             button.onclick = (e) => {
-                const productId = e.target.dataset.productId;
+                // Assurez-vous que le productId est récupéré du bouton parent si le clic est sur l'icône
+                const productId = e.target.closest('button').dataset.productId;
                 const item = cart.find(i => i.id == productId);
                 if (item) {
                     item.quantity++;
@@ -431,10 +433,11 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         });
 
-        // Boutons de suppression d'article
+        // Boutons de suppression d'article (sur la page panier)
         document.querySelectorAll('.remove-item-btn').forEach(button => {
             button.onclick = (e) => {
-                const productId = e.target.dataset.productId;
+                // Assurez-vous que le productId est récupéré du bouton parent si le clic est sur l'icône
+                const productId = e.target.closest('button').dataset.productId;
                 cart = cart.filter(item => item.id != productId);
                 localStorage.setItem('urbanwearCart', JSON.stringify(cart));
                 renderCartItems(); // Re-render pour mise à jour visuelle
@@ -513,7 +516,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Attache les écouteurs d'événements pour les boutons de suppression sur la page de commande
         document.querySelectorAll('.remove-item-btn-checkout').forEach(button => {
             button.onclick = (e) => {
-                const productId = e.target.dataset.productId;
+                // Assurez-vous que le productId est récupéré du bouton parent si le clic est sur l'icône
+                const productId = e.target.closest('button').dataset.productId;
                 cart = cart.filter(item => item.id != productId);
                 localStorage.setItem('urbanwearCart', JSON.stringify(cart));
                 updateCartCount(); // Met à jour le compteur dans le header
