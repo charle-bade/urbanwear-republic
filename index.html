@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanWear Republic - Vêtements Streetwear Tendance</title>
+    <!-- Google Fonts: Poppins pour une typographie moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes (burger, panier, réseaux sociaux) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Lien vers le fichier CSS principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- En-tête du site (Header) -->
+    <header id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">UrbanWear Republic</a>
+            </div>
+            <!-- Menu de navigation principal -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#featured-products">Produits</a></li>
+                    <li><a href="#categories">Catégories</a></li>
+                    <li><a href="#reviews">Avis</a></li>
+                    <li><a href="shop.html">Boutique</a></li> <!-- Lien vers la future page Boutique -->
+                    <li><a href="about.html">À Propos</a></li> <!-- Lien vers la future page À Propos -->
+                    <li><a href="contact.html">Contact</a></li> <!-- Lien vers la future page Contact -->
+                </ul>
+            </nav>
+            <!-- Icônes d'action (Panier, Menu Burger) -->
+            <div class="header-actions">
+                <button id="cart-button" class="action-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
+                <button id="burger-menu-button" class="action-icon">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu burger pour mobile (sera affiché/masqué par JS) -->
+    <div id="mobile-menu">
+        <button id="close-mobile-menu" class="action-icon"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#featured-products">Produits</a></li>
+            <li><a href="#categories">Catégories</a></li>
+            <li><a href="#reviews">Avis</a></li>
+            <li><a href="shop.html">Boutique</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Section Hero (Accueil) -->
+    <section id="hero" class="hero-section">
+        <div class="slider-container">
+            <div class="slider-item active" style="background-image: url('https://placehold.co/1920x1080/0D0D0D/FFFFFF?text=Nouvelle+Collection+Homme');">
+                <div class="hero-content">
+                    <h1>Style Urbain. Esprit Libre.</h1>
+                    <p>Découvrez les dernières tendances streetwear qui redéfinissent votre look.</p>
+                    <a href="shop.html" class="btn btn-primary">Explorer la Collection</a>
+                </div>
+            </div>
+            <div class="slider-item" style="background-image: url('https://placehold.co/1920x1080/0D0D0D/FFFFFF?text=Nouvelle+Collection+Femme');">
+                <div class="hero-content">
+                    <h1>Affirmez Votre Style.</h1>
+                    <p>Des pièces uniques pour exprimer votre personnalité au quotidien.</p>
+                    <a href="shop.html" class="btn btn-primary">Acheter Maintenant</a>
+                </div>
+            </div>
+            <div class="slider-item" style="background-image: url('https://placehold.co/1920x1080/0D0D0D/FFFFFF?text=Promotions+Exclusives');">
+                <div class="hero-content">
+                    <h1>Promotions Exclusives !</h1>
+                    <p>Ne manquez pas nos offres limitées sur une sélection d'articles.</p>
+                    <a href="shop.html" class="btn btn-primary">Voir les Offres</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- Section Produits Phares -->
+    <section id="featured-products" class="section fade-in">
+        <div class="container">
+            <h2>Nos Pièces Phares</h2>
+            <p class="section-description">Découvrez les articles les plus populaires de notre collection.</p>
+            <div class="product-grid">
+                <!-- Produit 1 -->
+                <div class="product-card">
+                    <img src="https://placehold.co/400x400/EAEAEA/0D0D0D?text=Sweat+Oversize" alt="Sweat Oversize Noir">
+                    <h3>Sweat Oversize "Urban Vibe"</h3>
+                    <p class="price">59,99 €</p>
+                    <div class="product-actions">
+                        <button class="btn btn-secondary add-to-cart" data-product-id="1" data-product-name="Sweat Oversize Urban Vibe" data-product-price="59.99">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 2 -->
+                <div class="product-card">
+                    <img src="https://placehold.co/400x400/EAEAEA/0D0D0D?text=Jean+Slim" alt="Jean Slim Délavé">
+                    <h3>Jean Slim "Rebel Fit"</h3>
+                    <p class="price">79,99 €</p>
+                    <div class="product-actions">
+                        <button class="btn btn-secondary add-to-cart" data-product-id="2" data-product-name="Jean Slim Rebel Fit" data-product-price="79.99">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 3 -->
+                <div class="product-card">
+                    <img src="https://placehold.co/400x400/EAEAEA/0D0D0D?text=T-Shirt+Graphique" alt="T-Shirt Graphique Street">
+                    <h3>T-Shirt Graphique "City Pulse"</h3>
+                    <p class="price">29,99 €</p>
+                    <div class="product-actions">
+                        <button class="btn btn-secondary add-to-cart" data-product-id="3" data-product-name="T-Shirt Graphique City Pulse" data-product-price="29.99">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 4 -->
+                <div class="product-card">
+                    <img src="https://placehold.co/400x400/EAEAEA/0D0D0D?text=Veste+Bomber" alt="Veste Bomber Noire">
+                    <h3>Veste Bomber "Night Rider"</h3>
+                    <p class="price">89,99 €</p>
+                    <div class="product-actions">
+                        <button class="btn btn-secondary add-to-cart" data-product-id="4" data-product-name="Veste Bomber Night Rider" data-product-price="89.99">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 5 -->
+                <div class="product-card">
+                    <img src="https://placehold.co/400x400/EAEAEA/0D0D0D?text=Casquette+Logo" alt="Casquette Logo Brodé">
+                    <h3>Casquette "Urban Logo"</h3>
+                    <p class="price">24,99 €</p>
+                    <div class="product-actions">
+                        <button class="btn btn-secondary add-to-cart" data-product-id="5" data-product-name="Casquette Urban Logo" data-product-price="24.99">Ajouter au panier</button>
+                    </div>
+                </div>
+                <!-- Produit 6 -->
+                <div class="product-card">
+                    <img src="https://placehold.co/400x400/EAEAEA/0D0D0D?text=Hoodie+Zippe" alt="Hoodie Zippé Gris">
+                    <h3>Hoodie Zippé "Street Comfort"</h3>
+                    <p class="price">64,99 €</p>
+                    <div class="product-actions">
+                        <button class="btn btn-secondary add-to-cart" data-product-id="6" data-product-name="Hoodie Zippé Street Comfort" data-product-price="64.99">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="shop.html" class="btn btn-primary">Voir toute la Boutique</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Catégories -->
+    <section id="categories" class="section fade-in bg-dark-alt">
+        <div class="container">
+            <h2>Explorez Nos Catégories</h2>
+            <p class="section-description">Trouvez facilement ce que vous cherchez.</p>
+            <div class="category-grid">
+                <a href="shop.html?category=homme" class="category-card">
+                    <img src="https://placehold.co/600x400/0D0D0D/FFFFFF?text=Collection+Homme" alt="Collection Homme">
+                    <h3>Collection Homme</h3>
+                </a>
+                <a href="shop.html?category=femme" class="category-card">
+                    <img src="https://placehold.co/600x400/0D0D0D/FFFFFF?text=Collection+Femme" alt="Collection Femme">
+                    <h3>Collection Femme</h3>
+                </a>
+                <a href="shop.html?category=accessoires" class="category-card">
+                    <img src="https://placehold.co/600x400/0D0D0D/FFFFFF?text=Accessoires" alt="Accessoires">
+                    <h3>Accessoires</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Avis Clients -->
+    <section id="reviews" class="section fade-in">
+        <div class="container">
+            <h2>Ce Que Nos Clients Disent</h2>
+            <p class="section-description">Leurs expériences, nos fiertés.</p>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Qualité incroyable et style au top ! J'adore mon nouveau sweat, il est super confortable et le design est unique."</p>
+                    <span class="reviewer-name">- Léo D.</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Livraison rapide et service client réactif. Le jean taille parfaitement, je recommande UrbanWear Republic !"</p>
+                    <span class="reviewer-name">- Chloé M.</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Enfin une marque qui comprend le vrai streetwear. Les collections sont toujours à la pointe de la mode. Bravo !"</p>
+                    <span class="reviewer-name">- Sofiane K.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Newsletter -->
+    <section id="newsletter" class="section fade-in bg-dark-alt">
+        <div class="container text-center">
+            <h2>Restez Connecté !</h2>
+            <p class="section-description">Abonnez-vous à notre newsletter pour recevoir les dernières nouveautés, promotions exclusives et inspirations streetwear.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Votre adresse email" required>
+                <button type="submit" class="btn btn-primary">S'abonner</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pied de page (Footer) -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>UrbanWear Republic</h3>
+                    <p>Votre destination pour le style streetwear authentique et tendance.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/urbanwearrepublic" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@urbanwearrepublic" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://facebook.com/urbanwearrepublic" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Aide & Infos</h3>
+                    <ul>
+                        <li><a href="#">CGV</a></li>
+                        <li><a href="#">Politique de Retour</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="tel:+33612345678">Appelez-nous : +33 6 12 34 56 78</a></li>
+                        <li><a href="https://wa.me/33612345678" target="_blank">WhatsApp : +33 6 12 34 56 78</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UrbanWear Republic. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript principal -->
+    <script src="script.js"></script>
+</body>
+</html>
+```css
+/* Variables CSS pour les couleurs et la typographie */
+:root {
+    --color-dark-deep: #0D0D0D; /* Noir profond */
+    --color-white-pure: #FFFFFF; /* Blanc pur */
+    --color-orange-accent: #FF6B00; /* Orange accent */
+    --color-light-gray: #EAEAEA; /* Gris clair */
+    --color-dark-alt: #1A1A1A; /* Une nuance de noir pour les sections alternées */
+
+    --font-primary: 'Poppins', sans-serif; /* Police principale */
+}
+
+/* Réinitialisation des styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Défilement fluide pour les ancres */
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-light-gray); /* Texte principal en gris clair */
+    background-color: var(--color-dark-deep); /* Arrière-plan noir profond */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+/* Styles généraux pour les conteneurs et sections */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+    position: relative; /* Pour les animations de fade-in */
+    opacity: 0; /* Caché par défaut pour l'animation */
+    transform: translateY(20px); /* Légèrement décalé vers le bas */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition douce */
+}
+
+.section.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-description {
+    font-size: 1.1em;
+    color: var(--color-light-gray);
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bg-dark-alt {
+    background-color: var(--color-dark-alt);
+}
+
+h1, h2, h3 {
+    color: var(--color-white-pure);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3.5em;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.8em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+a {
+    color: var(--color-white-pure);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-orange-accent);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px; /* Coins arrondis */
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-primary {
+    background-color: var(--color-orange-accent);
+    color: var(--color-white-pure);
+}
+
+.btn-primary:hover {
+    background-color: #e65c00; /* Nuance plus foncée de l'orange */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-alt);
+    color: var(--color-white-pure);
+    border: 1px solid var(--color-orange-accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-orange-accent);
+    color: var(--color-white-pure);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+}
+
+/* Header */
+#main-header {
+    background-color: var(--color-dark-deep);
+    color: var(--color-white-pure);
+    padding: 20px 0;
+    position: fixed; /* Rendu sticky par défaut */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+#main-header.sticky {
+    padding: 15px 0;
+    background-color: rgba(13, 13, 13, 0.95); /* Légèrement transparent pour un effet subtil */
+}
+
+#main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-orange-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#main-nav ul {
+    display: flex;
+}
+
+#main-nav ul li {
+    margin-left: 30px;
+}
+
+#main-nav ul li a {
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+}
+
+#main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-orange-accent);
+    transition: width 0.3s ease;
+}
+
+#main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.action-icon {
+    background: none;
+    border: none;
+    color: var(--color-white-pure);
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.action-icon:hover {
+    color: var(--color-orange-accent);
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--color-orange-accent);
+    color: var(--color-white-pure);
+    font-size: 0.7em;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+#burger-menu-button {
+    display: none; /* Caché sur desktop */
+}
+
+/* Menu mobile */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Caché par défaut */
+    width: 300px;
+    height: 100%;
+    background-color: var(--color-dark-alt);
+    padding: 40px 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+#mobile-menu.open {
+    right: 0; /* Affiché */
+}
+
+#mobile-menu #close-mobile-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+}
+
+#mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+#mobile-menu ul li {
+    margin-bottom: 20px;
+}
+
+#mobile-menu ul li a {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--color-white-pure);
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#mobile-menu ul li a:hover {
+    background-color: rgba(255, 107, 0, 0.2);
+    color: var(--color-orange-accent);
+}
+
+/* Section Hero */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px; /* Pour compenser le header sticky */
+}
+
+.slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white-pure);
+    text-align: center;
+    position: relative;
+}
+
+.slider-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Overlay sombre pour la lisibilité du texte */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 4.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 3;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--color-orange-accent);
+    transform: scale(1.2);
+}
+
+/* Grille de produits */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background-color: var(--color-dark-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-card h3 {
+    font-size: 1.4em;
+    margin: 20px 20px 10px;
+    color: var(--color-white-pure);
+}
+
+.product-card .price {
+    font-size: 1.3em;
+    color: var(--color-orange-accent);
+    font-weight: 700;
+    margin: 0 20px 15px;
+}
+
+.product-actions {
+    padding: 0 20px 20px;
+    margin-top: auto; /* Pousse le bouton vers le bas */
+}
+
+.product-actions .btn {
+    width: 100%;
+    font-size: 0.95em;
+    padding: 10px 15px;
+}
+
+/* Grille de catégories */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.category-card {
+    background-color: var(--color-dark-deep);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: block; /* Rendre le lien cliquable sur toute la carte */
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.category-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-card h3 {
+    font-size: 1.6em;
+    margin: 20px;
+    color: var(--color-white-pure);
+}
+
+/* Grille d'avis clients */
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background-color: var(--color-dark-alt);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-card .stars {
+    color: var(--color-orange-accent);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.review-card p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Permet au paragraphe de prendre l'espace disponible */
+}
+
+.review-card .reviewer-name {
+    font-weight: 600;
+    color: var(--color-white-pure);
+    font-size: 0.95em;
+    text-align: right;
+}
+
+/* Formulaire Newsletter */
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur mobile */
+}
+
+.newsletter-form input[type="email"] {
+    padding: 12px 20px;
+    border: 1px solid var(--color-orange-accent);
+    background-color: var(--color-dark-deep);
+    color: var(--color-white-pure);
+    border-radius: 8px;
+    font-size: 1em;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-orange-accent);
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.3);
+}
+
+/* Footer */
+#main-footer {
+    background-color: var(--color-dark-deep);
+    color: var(--color-light-gray);
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: var(--color-white-pure);
+}
+
+.footer-col p, .footer-col ul li {
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: var(--color-light-gray);
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--color-orange-accent);
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    color: var(--color-white-pure);
+    font-size: 1.8em;
+    margin-right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-orange-accent);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Utilitaires */
+.text-center {
+    text-align: center;
+}
+
+.mt-8 {
+    margin-top: 2rem; /* 32px */
+}
+
+/* Media Queries pour la Responsivité */
+
+/* Tablettes et petits ordinateurs portables */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 3.8em;
+    }
+
+    h2 {
+        font-size: 2.4em;
+    }
+
+    .hero-content p {
+        font-size: 1.3em;
+    }
+
+    #main-nav ul {
+        margin-left: 10px;
+    }
+
+    #main-nav ul li {
+        margin-left: 20px;
+    }
+
+    .product-grid, .category-grid, .review-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+    #main-nav {
+        display: none; /* Cache le menu desktop */
+    }
+
+    #burger-menu-button {
+        display: block; /* Affiche le bouton burger */
+    }
+
+    #main-header .container {
+        padding: 0 15px;
+    }
+
+    .logo a {
+        font-size: 1.5em;
+    }
+
+    .action-icon {
+        font-size: 1.3em;
+        margin-left: 15px;
+    }
+
+    .hero-section {
+        margin-top: 70px; /* Ajustement pour le header mobile */
+    }
+
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .product-grid, .category-grid, .review-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 25px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .newsletter-form input[type="email"],
+    .newsletter-form .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col ul {
+        padding: 0;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 5px;
+    }
+
+    .social-links {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+    }
+}
+
+/* Très petits mobiles */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+}
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Gestion du Header Sticky ---
+    const header = document.getElementById('main-header');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+
+        // Optionnel: masquer le header en défilant vers le bas, afficher en défilant vers le haut
+        // if (window.scrollY > lastScrollY && window.scrollY > 200) {
+        //     header.style.transform = 'translateY(-100%)';
+        // } else {
+        //     header.style.transform = 'translateY(0)';
+        // }
+        // lastScrollY = window.scrollY;
+    });
+
+    // --- Gestion du Menu Burger Mobile ---
+    const burgerButton = document.getElementById('burger-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+    // Ouvre le menu mobile
+    burgerButton.addEventListener('click', () => {
+        mobileMenu.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Empêche le défilement du corps
+    });
+
+    // Ferme le menu mobile
+    closeMobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = ''; // Rétablit le défilement du corps
+    });
+
+    // Ferme le menu mobile quand un lien est cliqué
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // --- Défilement fluide vers les sections (pour les liens d'ancrage) ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Empêche le comportement de saut par défaut
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            const headerOffset = header.offsetHeight; // Hauteur du header sticky
+            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth' // Active le défilement fluide
+            });
+        });
+    });
+
+    // --- Animations au Scroll (Fade-in) ---
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.3, // Déclenche l'animation quand 30% de l'élément est visible
+        rootMargin: "0px 0px -100px 0px" // Permet de déclencher un peu avant d'atteindre le bas de l'écran
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return; // Si l'élément n'est pas visible, ne fait rien
+            } else {
+                entry.target.classList.add('active'); // Ajoute la classe 'active' pour l'animation
+                appearOnScroll.unobserve(entry.target); // Arrête d'observer une fois l'animation déclenchée
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader); // Commence à observer chaque élément .fade-in
+    });
+
+    // --- Slider Hero ---
+    const sliderItems = document.querySelectorAll('.slider-item');
+    const dots = document.querySelectorAll('.dot');
+    const sliderContainer = document.querySelector('.slider-container');
+    let currentSlide = 0;
+    let slideInterval;
+
+    // Fonction pour afficher une slide spécifique
+    function showSlide(index) {
+        // Masque tous les points et les rend inactifs
+        dots.forEach(dot => dot.classList.remove('active'));
+        // Active le point correspondant à la slide actuelle
+        dots[index].classList.add('active');
+
+        // Déplace le conteneur du slider pour afficher la bonne slide
+        sliderContainer.style.transform = `translateX(-${index * 100}%)`;
+        currentSlide = index;
+    }
+
+    // Fonction pour passer à la slide suivante
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % sliderItems.length;
+        showSlide(currentSlide);
+    }
+
+    // Initialise le slider et démarre l'autoplay
+    function startSlider() {
+        showSlide(currentSlide); // Affiche la première slide au chargement
+        slideInterval = setInterval(nextSlide, 5000); // Change de slide toutes les 5 secondes
+    }
+
+    // Gère le clic sur les points de navigation du slider
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            clearInterval(slideInterval); // Arrête l'autoplay lors d'une interaction manuelle
+            const slideIndex = parseInt(this.dataset.slide);
+            showSlide(slideIndex);
+            startSlider(); // Redémarre l'autoplay
+        });
+    });
+
+    // Démarre le slider au chargement de la page
+    startSlider();
+
+    // --- Système de Panier (simple avec localStorage) ---
+    const cartCountElement = document.getElementById('cart-count');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    let cart = JSON.parse(localStorage.getItem('urbanwearCart')) || []; // Charge le panier depuis localStorage
+
+    // Met à jour le nombre d'articles dans l'icône du panier
+    function updateCartCount() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountElement.textContent = totalItems;
+    }
+
+    // Ajoute un produit au panier
+    function addProductToCart(productId, productName, productPrice) {
+        const existingItem = cart.find(item => item.id === productId);
+
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: 1
+            });
+        }
+        localStorage.setItem('urbanwearCart', JSON.stringify(cart)); // Sauvegarde dans localStorage
+        updateCartCount(); // Met à jour l'affichage du nombre d'articles
+        alert(`${productName} a été ajouté au panier !`); // Utilisation d'un alert simple pour cette version
+    }
+
+    // Attache les écouteurs d'événements aux boutons "Ajouter au panier"
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = button.dataset.productId;
+            const productName = button.dataset.productName;
+            const productPrice = parseFloat(button.dataset.productPrice);
+            addProductToCart(productId, productName, productPrice);
+        });
+    });
+
+    // Initialise le compteur du panier au chargement de la page
+    updateCartCount();
+
+    // --- Gestion du formulaire Newsletter (simple validation) ---
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value;
+
+            if (email && email.includes('@') && email.includes('.')) {
+                alert(`Merci de vous être abonné avec l'adresse : ${email} !`);
+                emailInput.value = ''; // Réinitialise le champ
+            } else {
+                alert('Veuillez entrer une adresse email valide.');
+            }
+        });
+    }
+
+});
