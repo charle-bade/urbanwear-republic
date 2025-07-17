@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanWear Republic - À Propos</title>
+    <!-- Google Fonts: Poppins pour une typographie moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes (burger, panier, réseaux sociaux) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Lien vers le fichier CSS principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- En-tête du site (Header) - Identique à index.html -->
+    <header id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">UrbanWear Republic</a>
+            </div>
+            <!-- Menu de navigation principal -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html#hero">Accueil</a></li>
+                    <li><a href="index.html#featured-products">Produits</a></li>
+                    <li><a href="index.html#categories">Catégories</a></li>
+                    <li><a href="index.html#reviews">Avis</a></li>
+                    <li><a href="shop.html">Boutique</a></li>
+                    <li><a href="about.html" class="active">À Propos</a></li> <!-- Lien actif pour cette page -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Icônes d'action (Panier, Menu Burger) -->
+            <div class="header-actions">
+                <button id="cart-button" class="action-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
+                <button id="burger-menu-button" class="action-icon">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu burger pour mobile (sera affiché/masqué par JS) - Identique à index.html -->
+    <div id="mobile-menu">
+        <button id="close-mobile-menu" class="action-icon"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="index.html#hero">Accueil</a></li>
+            <li><a href="index.html#featured-products">Produits</a></li>
+            <li><a href="index.html#categories">Catégories</a></li>
+            <li><a href="index.html#reviews">Avis</a></li>
+            <li><a href="shop.html">Boutique</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Section principale À Propos -->
+    <main id="about-main" class="section fade-in">
+        <div class="container">
+            <h1 class="page-title">À Propos de UrbanWear Republic</h1>
+            <p class="section-description">Découvrez notre histoire, notre passion et notre mission.</p>
+
+            <div class="about-content">
+                <div class="about-text-block">
+                    <h2>Notre Histoire</h2>
+                    <p>Fondée en 2020, UrbanWear Republic est née d'une passion commune pour la mode urbaine et d'un désir de proposer des vêtements qui allient style, confort et authenticité. Nous avons commencé petit, avec une poignée de designs uniques, et nous avons rapidement grandi grâce au soutien de notre communauté de jeunes urbains qui partagent notre vision.</p>
+                    <p>Notre objectif a toujours été de créer plus que de simples vêtements ; nous voulons offrir une forme d'expression, un moyen d'affirmer sa personnalité et de se sentir confiant dans chaque pas que l'on fait en ville. Chaque pièce de notre collection est pensée pour refléter l'énergie et la diversité de la culture streetwear.</p>
+                </div>
+
+                <div class="about-image-grid">
+                    <img src="https://placehold.co/600x400/0D0D0D/FFFFFF?text=Equipe+UrbanWear" alt="Équipe UrbanWear Republic">
+                    <img src="https://placehold.co/600x400/0D0D0D/FFFFFF?text=Atelier+Creation" alt="Atelier de création">
+                </div>
+
+                <div class="about-text-block">
+                    <h2>Notre Mission</h2>
+                    <p>Chez UrbanWear Republic, notre mission est de devenir la référence en matière de mode streetwear, en offrant des collections innovantes et de haute qualité qui inspirent nos clients à embrasser leur style unique. Nous nous engageons à :</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle icon-orange"></i> Proposer des designs avant-gardistes et tendance.</li>
+                        <li><i class="fas fa-check-circle icon-orange"></i> Garantir la qualité et la durabilité de nos produits.</li>
+                        <li><i class="fas fa-check-circle icon-orange"></i> Promouvoir une mode inclusive et accessible.</li>
+                        <li><i class="fas fa-check-circle icon-orange"></i> Bâtir une communauté forte et engagée.</li>
+                    </ul>
+                    <p>Nous croyons que la mode est une forme d'art et que chacun mérite de trouver des vêtements qui le représentent. Rejoignez la République et affirmez votre style !</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Section Newsletter (peut être réutilisée ici si souhaité) -->
+    <section id="newsletter" class="section fade-in bg-dark-alt">
+        <div class="container text-center">
+            <h2>Restez Connecté !</h2>
+            <p class="section-description">Abonnez-vous à notre newsletter pour recevoir les dernières nouveautés, promotions exclusives et inspirations streetwear.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Votre adresse email" required>
+                <button type="submit" class="btn btn-primary">S'abonner</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pied de page (Footer) - Identique à index.html -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>UrbanWear Republic</h3>
+                    <p>Votre destination pour le style streetwear authentique et tendance.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/urbanwearrepublic" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@urbanwearrepublic" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://facebook.com/urbanwearrepublic" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="index.html#hero">Accueil</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Aide & Infos</h3>
+                    <ul>
+                        <li><a href="#">CGV</a></li>
+                        <li><a href="#">Politique de Retour</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="tel:+33612345678">Appelez-nous : +33 6 12 34 56 78</a></li>
+                        <li><a href="https://wa.me/33612345678" target="_blank">WhatsApp : +33 6 12 34 56 78</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UrbanWear Republic. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript principal -->
+    <script src="script.js"></script>
+</body>
+</html>
