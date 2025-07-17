@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UrbanWear Republic - Contact</title>
+    <title>UrbanWear Republic - Votre Panier</title>
     <!-- Google Fonts: Poppins pour une typographie moderne -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome pour les icônes (burger, panier, réseaux sociaux) -->
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <!-- En-tête du site (Header) - Identique à index.html -->
+    <!-- En-tête du site (Header) - Identique à toutes les pages -->
     <header id="main-header">
         <div class="container">
             <div class="logo">
@@ -25,12 +25,12 @@
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="shop.html">Boutique</a></li>
                     <li><a href="about.html">À Propos</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li> <!-- Lien actif pour cette page -->
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             <!-- Icônes d'action (Panier, Menu Burger) -->
             <div class="header-actions">
-                <button id="cart-button" class="action-icon">
+                <button id="cart-button" class="action-icon active">
                     <i class="fas fa-shopping-cart"></i>
                     <span id="cart-count" class="cart-count">0</span>
                 </button>
@@ -41,7 +41,7 @@
         </div>
     </header>
 
-    <!-- Menu burger pour mobile (sera affiché/masqué par JS) - Identique à index.html -->
+    <!-- Menu burger pour mobile (sera affiché/masqué par JS) - Identique à toutes les pages -->
     <div id="mobile-menu">
         <button id="close-mobile-menu" class="action-icon"><i class="fas fa-times"></i></button>
         <ul>
@@ -52,55 +52,26 @@
         </ul>
     </div>
 
-    <!-- Section principale Contact -->
-    <main id="contact-main" class="section fade-in">
+    <!-- Section principale du Panier -->
+    <main id="cart-main" class="section fade-in">
         <div class="container">
-            <h1 class="page-title">Contactez-Nous</h1>
-            <p class="section-description">Nous sommes là pour répondre à toutes vos questions et vous aider.</p>
+            <h1 class="page-title">Votre Panier</h1>
+            <p class="section-description">Vérifiez vos articles avant de finaliser votre commande.</p>
 
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Informations de Contact</h2>
-                    <p><i class="fas fa-envelope icon-orange"></i> Email : <a href="mailto:contact@urbanwearrepublic.com">contact@urbanwearrepublic.com</a></p>
-                    <p><i class="fas fa-phone-alt icon-orange"></i> Téléphone : <a href="tel:+33612345678">+33 6 12 34 56 78</a></p>
-                    <p><i class="fab fa-whatsapp icon-orange"></i> WhatsApp : <a href="https://wa.me/33612345678" target="_blank">+33 6 12 34 56 78</a></p>
-                    <p><i class="fas fa-map-marker-alt icon-orange"></i> Adresse : 123 Rue du Style, 75001 Paris, France</p>
+            <div id="cart-items-container" class="cart-items-container">
+                <!-- Les articles du panier seront injectés ici par JavaScript -->
+                <p id="empty-cart-message" class="text-center">Votre panier est vide pour le moment.</p>
+            </div>
 
-                    <h2 class="mt-4">Suivez-nous sur les réseaux !</h2>
-                    <div class="social-links">
-                        <a href="https://instagram.com/urbanwearrepublic" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://tiktok.com/@urbanwearrepublic" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://facebook.com/urbanwearrepublic" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <h2>Envoyez-nous un message</h2>
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nom Complet</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Adresse Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Sujet</label>
-                            <input type="text" id="subject" name="subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Votre Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
-                    </form>
-                </div>
+            <div class="cart-summary">
+                <p>Total : <span id="cart-total-price">0.00 €</span></p>
+                <button id="checkout-button" class="btn btn-primary">Passer la commande</button>
+                <a href="shop.html" class="btn btn-secondary mt-4">Continuer mes achats</a>
             </div>
         </div>
     </main>
 
-    <!-- Pied de page (Footer) - Identique à index.html -->
+    <!-- Pied de page (Footer) - Identique à toutes les pages -->
     <footer id="main-footer">
         <div class="container">
             <div class="footer-grid">

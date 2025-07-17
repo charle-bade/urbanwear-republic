@@ -1,4 +1,4 @@
-// Ce script.js est partagé par toutes les pages (index.html, shop.html, about.html, contact.html)
+// Ce script.js est partagé par toutes les pages (index.html, shop.html, about.html, contact.html, cart.html)
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Gestion du Header Sticky ---
@@ -180,6 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Redirige vers la page du panier quand le bouton panier est cliqué
+    const cartButtonInHeader = document.getElementById('cart-button');
+    if (cartButtonInHeader) {
+        cartButtonInHeader.addEventListener('click', () => {
+            window.location.href = 'cart.html';
+        });
+    }
+
     // Initialise le compteur du panier au chargement de la page
     updateCartCount();
 
@@ -193,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 position: fixed;
                 top: 20px;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translateX(-50%) translateY(-50px); /* Initialement décalé vers le haut */
                 padding: 15px 25px;
                 border-radius: 8px;
                 color: var(--color-white-pure);
@@ -209,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(messageBox);
         }
 
-        messageBox.textContent = ''; // Clear previous content
+        messageBox.textContent = ''; // Efface le contenu précédent
         let iconHtml = '';
         let bgColor = '';
 
@@ -227,15 +235,15 @@ document.addEventListener('DOMContentLoaded', () => {
         messageBox.style.backgroundColor = bgColor;
         messageBox.innerHTML = iconHtml + message;
 
-        // Show message
+        // Affiche le message
         messageBox.style.opacity = '1';
         messageBox.style.transform = 'translateX(-50%) translateY(0)';
 
-        // Hide message after 3 seconds
+        // Cache le message après 3 secondes
         setTimeout(() => {
             messageBox.style.opacity = '0';
             messageBox.style.transform = 'translateX(-50%) translateY(-20px)';
-            // Remove from DOM after transition to clean up
+            // Supprime du DOM après la transition pour nettoyer
             setTimeout(() => {
                 if (messageBox.parentNode) {
                     messageBox.parentNode.removeChild(messageBox);
@@ -249,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault(); // Empêche l'envoi du formulaire par défaut
-            const emailInput = this.querySelector('input[type="email"]');
+            const emailInput = this.querySelector('input[type="email']');
             const email = emailInput.value;
 
             if (email && email.includes('@') && email.includes('.')) {
@@ -321,6 +329,136 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayCustomMessage('Veuillez remplir tous les champs obligatoires et entrer une adresse email valide.', 'error');
             }
         });
+    }
+
+    // --- Logique spécifique à la page Panier (cart.html) ---
+    const cartItemsContainer = document.getElementById('cart-items-container');
+    const cartTotalPriceElement = document.getElementById('cart-total-price');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+    const checkoutButton = document.getElementById('checkout-button');
+
+    function renderCartItems() {
+        if (!cartItemsContainer) return; // S'assure que nous sommes sur la page du panier
+
+        cartItemsContainer.innerHTML = ''; // Vide le conteneur actuel
+        let totalPrice = 0;
+
+        if (cart.length === 0) {
+            emptyCartMessage.style.display = 'block'; // Affiche le message "panier vide"
+            checkoutButton.disabled = true; // Désactive le bouton commander
+        } else {
+            emptyCartMessage.style.display = 'none'; // Cache le message "panier vide"
+            checkoutButton.disabled = false; // Active le bouton commander
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+                cartItemElement.innerHTML = `
+                    <img src="https://placehold.co/80x80/EAEAEA/0D0D0D?text=${item.name.replace(/\s/g, '+')}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <h3>${item.name}</h3>
+                        <p>${item.price.toFixed(2)} € / pièce</p>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="decrease-quantity" data-product-id="${item.id}">-</button>
+                        <input type="number" value="${item.quantity}" min="1" data-product-id="${item.id}">
+                        <button class="increase-quantity" data-product-id="${item.id}">+</button>
+                    </div>
+                    <p class="cart-item-price">${itemTotal.toFixed(2)} €</p>
+                    <button class="remove-item-btn" data-product-id="${item.id}"><i class="fas fa-trash"></i></button>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+        }
+        cartTotalPriceElement.textContent = totalPrice.toFixed(2) + ' €';
+
+        // Attache les écouteurs d'événements pour les boutons du panier
+        attachCartEventListeners();
+    }
+
+    function attachCartEventListeners() {
+        // Boutons de diminution de quantité
+        document.querySelectorAll('.decrease-quantity').forEach(button => {
+            button.onclick = (e) => {
+                const productId = e.target.dataset.productId;
+                const item = cart.find(i => i.id == productId);
+                if (item && item.quantity > 1) {
+                    item.quantity--;
+                    localStorage.setItem('urbanwearCart', JSON.stringify(cart));
+                    renderCartItems();
+                    updateCartCount();
+                }
+            };
+        });
+
+        // Boutons d'augmentation de quantité
+        document.querySelectorAll('.increase-quantity').forEach(button => {
+            button.onclick = (e) => {
+                const productId = e.target.dataset.productId;
+                const item = cart.find(i => i.id == productId);
+                if (item) {
+                    item.quantity++;
+                    localStorage.setItem('urbanwearCart', JSON.stringify(cart));
+                    renderCartItems();
+                    updateCartCount();
+                }
+            };
+        });
+
+        // Champs de quantité (input)
+        document.querySelectorAll('.cart-item-quantity input').forEach(input => {
+            input.onchange = (e) => {
+                const productId = e.target.dataset.productId;
+                const newQuantity = parseInt(e.target.value);
+                const item = cart.find(i => i.id == productId);
+                if (item && !isNaN(newQuantity) && newQuantity >= 1) {
+                    item.quantity = newQuantity;
+                    localStorage.setItem('urbanwearCart', JSON.stringify(cart));
+                    renderCartItems();
+                    updateCartCount();
+                } else {
+                    // Revert to old quantity if input is invalid
+                    e.target.value = item ? item.quantity : 1;
+                }
+            };
+        });
+
+        // Boutons de suppression d'article
+        document.querySelectorAll('.remove-item-btn').forEach(button => {
+            button.onclick = (e) => {
+                const productId = e.target.dataset.productId;
+                cart = cart.filter(item => item.id != productId);
+                localStorage.setItem('urbanwearCart', JSON.stringify(cart));
+                renderCartItems();
+                updateCartCount();
+                displayCustomMessage('Article supprimé du panier.', 'info');
+            };
+        });
+    }
+
+    // Gère le bouton "Passer la commande"
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', () => {
+            if (cart.length > 0) {
+                displayCustomMessage('Procédure de commande initiée ! (Fonctionnalité complète à développer)', 'success');
+                // Ici, vous intégreriez la logique de paiement réelle (vers une page de paiement, API, etc.)
+                // Pour l'exemple, nous vidons le panier après une "commande" simulée.
+                cart = [];
+                localStorage.setItem('urbanwearCart', JSON.stringify(cart));
+                updateCartCount();
+                renderCartItems();
+            } else {
+                displayCustomMessage('Votre panier est vide. Ajoutez des articles avant de commander.', 'error');
+            }
+        });
+    }
+
+    // Appelle renderCartItems() si nous sommes sur la page du panier
+    if (window.location.pathname.endsWith('cart.html')) {
+        renderCartItems();
     }
 
 });
