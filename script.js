@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: 'smooth' // Active le défilement fluide
                 });
             }
-            // Pour les liens vers d'autres pages (shop.html, about.html, contact.html), le comportement par défaut est conservé
+            // Pour les liens vers d'autres pages (shop.html, about.html, contact.html), le comportement par default est conservé
         });
     });
 
@@ -494,8 +494,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const checkoutItemElement = document.createElement('div');
                 checkoutItemElement.classList.add('checkout-cart-item');
                 checkoutItemElement.innerHTML = `
-                    <span>${item.name} (x${item.quantity})</span>
-                    <span>${itemTotal.toFixed(2)} €</span>
+                    <img src="https://placehold.co/50x50/EAEAEA/0D0D0D?text=${item.name.replace(/\s/g, '+')}" alt="${item.name}">
+                    <div class="checkout-item-details">
+                        <span>${item.name}</span>
+                        <small>Qté: ${item.quantity}</small>
+                    </div>
+                    <span class="checkout-item-price">${itemTotal.toFixed(2)} €</span>
+                    <button class="remove-item-btn-checkout" data-product-id="${item.id}"><i class="fas fa-trash"></i></button>
                 `;
                 checkoutCartItemsContainer.appendChild(checkoutItemElement);
             });
@@ -504,6 +509,18 @@ document.addEventListener('DOMContentLoaded', () => {
         summarySubtotal.textContent = subtotal.toFixed(2) + ' €';
         // Pour cet exemple, la livraison est gratuite, donc le total est le sous-total
         summaryTotal.textContent = subtotal.toFixed(2) + ' €';
+
+        // Attache les écouteurs d'événements pour les boutons de suppression sur la page de commande
+        document.querySelectorAll('.remove-item-btn-checkout').forEach(button => {
+            button.onclick = (e) => {
+                const productId = e.target.dataset.productId;
+                cart = cart.filter(item => item.id != productId);
+                localStorage.setItem('urbanwearCart', JSON.stringify(cart));
+                updateCartCount(); // Met à jour le compteur dans le header
+                renderCheckoutSummary(); // Re-render le résumé sur la page de commande
+                displayCustomMessage('Article supprimé du panier.', 'info');
+            };
+        });
     }
 
     // Gère le bouton "Confirmer la Commande" sur checkout.html

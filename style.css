@@ -1115,19 +1115,65 @@ ul {
     padding-bottom: 20px;
 }
 
+/* Styles pour les articles individuels dans le résumé de commande */
 .order-summary-container .checkout-cart-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    font-size: 1.1em;
+    justify-content: space-between; /* Ajusté pour mieux espacer */
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05); /* Ligne plus discrète */
+}
+
+.order-summary-container .checkout-cart-item:last-of-type {
+    border-bottom: none;
+}
+
+.order-summary-container .checkout-cart-item img {
+    width: 50px; /* Plus petit pour le résumé */
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.order-summary-container .checkout-item-details {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.order-summary-container .checkout-item-details span {
+    display: block; /* Nom du produit sur une ligne, quantité/prix sur une autre */
+    font-weight: 600;
+    color: var(--color-white-pure);
+    font-size: 1em;
+}
+
+.order-summary-container .checkout-item-details small {
+    font-size: 0.85em;
     color: var(--color-light-gray);
 }
 
-.order-summary-container .checkout-cart-item span:first-child {
-    font-weight: 600;
-    color: var(--color-white-pure);
+.order-summary-container .checkout-item-price {
+    font-weight: 700;
+    color: var(--color-orange-accent);
+    font-size: 1.1em;
+    white-space: nowrap; /* Empêche le prix de se casser sur plusieurs lignes */
 }
+
+.order-summary-container .remove-item-btn-checkout {
+    background: none;
+    border: none;
+    color: #dc3545; /* Rouge pour supprimer */
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 10px; /* Espace par rapport au prix */
+    transition: color 0.3s ease;
+}
+
+.order-summary-container .remove-item-btn-checkout:hover {
+    color: #c82333;
+}
+
 
 .order-summary-container .summary-line {
     display: flex;
@@ -1397,6 +1443,29 @@ ul {
     .form-group-inline {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .order-summary-container .checkout-cart-item {
+        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+        justify-content: center;
+        text-align: center;
+    }
+
+    .order-summary-container .checkout-item-details {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .order-summary-container .checkout-item-price {
+        width: 100%; /* Prend toute la largeur */
+        text-align: center;
+    }
+
+    .order-summary-container .remove-item-btn-checkout {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        margin-left: 0;
     }
 }
 
